@@ -1,0 +1,23 @@
+{
+  "name": "todo_backend",
+  "version": "1.0.0",
+  "description": "todo list with expressjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node dist/App.js",
+    "test": "jest"
+  },
+  "author": "dev-michel324",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.2.2",
+    "express": "^4.18.2",
+    "typeorm": "^0.3.11",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.14",
+    "@types/node": "^18.11.14"
+  }
+}
