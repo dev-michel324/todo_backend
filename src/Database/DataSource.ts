@@ -7,9 +7,9 @@ const AppDataSource = new DataSource({
     port: 5432,
     username: 'michel',
     password: 'michel123',
-    database: 'todo',
-    synchronize: true,
+    database: 'todolist',
     entities: [Todo],
+    synchronize: true
 })
 
 AppDataSource.initialize()

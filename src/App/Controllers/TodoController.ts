@@ -15,7 +15,7 @@ const todoRepository = dataSource.getRepository(Todo);
 class TodoController {
 
     async index(req:any, res:any): Promise<any> {
-        const todos = todoRepository.createQueryBuilder()
+        const todos = await todoRepository.createQueryBuilder()
             .getMany();
         
         return res.json({
