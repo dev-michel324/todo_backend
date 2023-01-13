@@ -55,7 +55,7 @@ class TodoController {
 
     async update(req:any, res:any): Promise<any> {
         const todo: TodoUpdateType = {
-            id: req.body.id,
+            id: req.params.id,
             description: req.body.description,
             open: req.body.status
         };
@@ -87,7 +87,7 @@ class TodoController {
 
     async show(req:any, res:any): Promise<any> {
         const todo: TodoBaseType = {
-            id: req.body.id
+            id: req.params.id
         };
 
         const validation = await todoBaseSchema.validate(todo)
@@ -110,7 +110,7 @@ class TodoController {
 
     async remove(req:any, res:any): Promise<any> {
         const todo: TodoBaseType = {
-            id: req.body.id
+            id: req.params.id
         };
 
         const validation = await todoBaseSchema.validate(todo)
@@ -127,13 +127,13 @@ class TodoController {
 
         try{
             await todoRepository
-                .createQueryBuilder('product')
+                .createQueryBuilder('todo')
                 .delete()
                 .from(Todo)
-                .where("product.id = :id", {id: todo.id})
+                .where("todo.id = :id", {id: todo.id})
                 .execute();
         }catch(err:any) {
-            return res.status(400).json(
+            return res.status(500).json(
                 new ErrorHandler(todo, err.message).handle());
         }
 
