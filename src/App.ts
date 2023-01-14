@@ -8,6 +8,7 @@ app.post("/todo", TodoController.create);
 app.get("/todo/show/:id", TodoController.show);
 app.put("/todo/:id", TodoController.update);
 app.delete("/todo/:id", TodoController.remove);
+app.put("/todo/close/:id", TodoController.close);
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
